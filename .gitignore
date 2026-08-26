@@ -1,0 +1,11 @@
+# Full-text PDFs — copyright; never commit
+2_Screening/fulltext/
+*.pdf
+!7_Submission/**/*.pdf
+
+# Local/derived
+.Rhistory
+.RData
+__pycache__/
+*.pyc
+.DS_Store
