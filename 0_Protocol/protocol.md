@@ -447,9 +447,9 @@ PROSPERO amendment.
 |---|---|---|---|
 | 1 | Resolve every `[CITE]` against PubMed (none from memory) | **Done** 2026-08-26 | — |
 | 2 | Complete the seed set in §7.2.1 and run the retrieval gate | **Done** — PASS | — |
-| 3 | Execute Embase, Cochrane CENTRAL, Scopus, Web of Science | Open | — |
+| 3 | Execute Embase, Cochrane CENTRAL, Scopus, Web of Science | Embase block drafted (`1_Search/embase_strategy.md`); execution needs an institutional account | — |
 | 4 | PRESS peer review of the search strategy | Open | — |
 | 5 | Confirm review team, roles, and the reviewer-independence assignment (§7.3) | Open | — |
 | 6 | Confirm funding and COI statements | Open | — |
-| 7 | Write the full 20-question `quadas3_guidance.md` web appendix | Open | — |
+| 7 | Write the full 20-question `quadas3_guidance.md` web appendix | **Done** — `0_Protocol/quadas3_guidance.md` | — |
 | 8 | Submit to PROSPERO and record the CRD ID (`^CRD42\d{9}$`) | Open | — |
