@@ -10,9 +10,10 @@
 | Registration | PROSPERO — not yet submitted (see `7_Submission/PROSPERO_registration.md`) |
 | Status | Protocol drafting; no searching has begun |
 
-> **Citation status.** Methodological references below are given in full. Clinical-background
-> claims are marked `[CITE]` and must be resolved through `/search-lit` (API-verified) before
-> registration. Nothing in this file may be cited from memory.
+> **Citation status.** All clinical-background citations were resolved on 2026-08-26 against
+> PubMed via the PubMed MCP server, and each carries a PMID and DOI verified at that time. No
+> citation in this file comes from memory. Bibliographic records are logged in
+> `1_Search/citation_verification.md`.
 
 ---
 
@@ -23,7 +24,12 @@ cell lung cancer (NSCLC), but the two standard specimen types each fail in a pre
 Tumour tissue is limited by procedural invasiveness and by spatial heterogeneity, and a
 non-diagnostic or quantity-insufficient sample forces a re-biopsy. Plasma cell-free DNA avoids
 the procedure but has a substantial false-negative rate, particularly in intrathoracic-only
-disease and in low-shedding tumours `[CITE]`.
+disease and in low-shedding tumours. In a meta-analysis of 21 studies and 1,639 patients, plasma
+ctDNA detected *EGFR* T790M with a pooled sensitivity of only 0.67 (95% CI 0.64-0.70) against a
+tissue reference (Passiglia et al., *Sci Rep* 2018;8:13379, PMID:30190486,
+doi:10.1038/s41598-018-30780-4), and a separate synthesis put pooled sensitivity for cfDNA
+mutation detection at 0.628 (95% CI 0.244-0.919) (Chen et al., *Biomark Med* 2019;14:587-597,
+PMID:31845833, doi:10.2217/bmm-2018-0093).
 
 Airway-derived specimens obtained at bronchoscopy — bronchial washing fluid (BWF),
 bronchoalveolar lavage fluid (BALF), and fluid collected by a targeted washing technique
@@ -36,15 +42,26 @@ Primary studies of this compartment have accumulated rapidly and report detectio
 that is at least comparable to tissue and consistently superior to paired plasma. Reported
 figures include a targeted-washing series in which EGFR T790M was detected in 29.3% of
 washing-fluid samples versus 22.0% of tissue and 9.8% of plasma samples (Kim et al., *Cancer
-Res Treat* 2026;58(1):107-114, doi:10.4143/crt.2024.1128), and a prospective NGS series in
-which druggable mutations were detected in 65% of BWF samples versus 47% of plasma and 48% of
-tissue, with 94% BWF-tissue concordance (Kim et al., *JCO Precis Oncol* 2025,
-doi:10.1200/PO-25-00299).
+Res Treat* 2026;58(1):107-114, PMID:40017263, doi:10.4143/crt.2024.1128), and a prospective NGS
+series in which druggable mutations were detected in 65% of BWF samples versus 47% of plasma and
+48% of tissue, with 94% BWF-tissue concordance (Kim et al., *JCO Precis Oncol* 2025,
+PMID:40749152, doi:10.1200/PO-25-00299). The same direction of effect is reported outside this
+group: BAL cfDNA profiled by CAPP-Seq yielded more tumour-derived variants than paired plasma at
+every stage (Nair et al., *Cancer Res* 2022;82:2838-2847, PMID:35748739,
+doi:10.1158/0008-5472.CAN-22-0554), and *EGFR* mutations were detected in 80% of bronchial
+washing supernatants by ddPCR — including in cases where no tumour cells were found by biopsy or
+cytology (Murata et al., *Jpn J Clin Oncol* 2024;54:681-688, PMID:38476004,
+doi:10.1093/jjco/hyae021).
 
 **No systematic review or diagnostic test accuracy meta-analysis of this specimen class has
-been published.** By contrast, the adequacy of EBUS-TBNA specimens for next-generation
-sequencing has been synthesised at least twice `[CITE]`, and plasma cfDNA genotyping has been
-synthesised repeatedly `[CITE]`. The evidence for the airway compartment therefore sits in a
+been published.** By contrast, the adequacy of EBUS-TBNA specimens for molecular analysis has
+been synthesised twice — 33 studies and 2,698 patients giving a pooled *EGFR*-sufficiency of
+94.5% (Labarca et al., *Ann Am Thorac Soc* 2018;15:1205-1216, PMID:30011388,
+doi:10.1513/AnnalsATS.201801-045OC), and 21 studies and 1,175 patients giving a pooled NGS
+adequacy of 86.5% (Zhao et al., *Lung Cancer* 2022;166:17-26, PMID:35151114,
+doi:10.1016/j.lungcan.2022.01.018) — and plasma cfDNA genotyping has been synthesised
+repeatedly (Passiglia 2018; Chen 2019, both above; Yu et al., *Cell Mol Biol* 2023;69(8):89-95,
+PMID:37715416, doi:10.14715/cmb/2023.69.8.14). The evidence for the airway compartment sits in a
 state where individual series are persuasive but the pooled operating characteristics — and
 the extent to which they depend on collection technique, detection platform, and lesion
 factors — are unknown. That is the gap this review addresses.
@@ -245,18 +262,28 @@ A AND B AND (C OR D)
 No methodological/DTA filter will be applied: DTA filters are known to lose eligible records,
 and the topic-specific blocks are already narrow.
 
-#### 7.2.1 Seed-set validation (gate before execution)
+#### 7.2.1 Seed-set validation (gate executed 2026-08-26 — PASS)
 
 The strategy must retrieve **all** of the following known-eligible records before it is run at
 scale. Failure to retrieve any seed sends the strategy back for revision, and the revision is
 logged.
 
-| Seed | Identifier |
-|---|---|
-| Targeted washing technique for EGFR (T790M) | doi:10.4143/crt.2024.1128 |
-| BWF ctDNA NGS vs plasma vs tissue | doi:10.1200/PO-25-00299 |
-| BALF extracellular-vesicle EGFR testing | `[CITE — resolve via /search-lit]` |
-| BWF supernatant genome profiling | `[CITE — resolve via /search-lit]` |
+Run against PubMed on 2026-08-26. Sub-query labels (QA/QB/QC) are defined in
+`1_Search/pubmed_strategy.md`; QA = analyte block anchored on a cancer term, QB = platform block
+anchored on *EGFR*/mutation, QC = extracellular-vesicle block.
+
+| Seed | PMID | Retrieved by | Result |
+|---|---|---|---|
+| Kim 2026 — targeted washing technique, *EGFR* T790M | 40017263 | QB | PASS |
+| Kim 2025 — BWF ctDNA NGS vs plasma vs tissue | 40749152 | QA | PASS |
+| Murata 2024 — BWF supernatant cfDNA, ddPCR | 38476004 | QA, QB | PASS |
+| Nair 2022 — BAL cfDNA, CAPP-Seq | 35748739 | QA | PASS |
+| Ryu 2019 — BW supernatant, ultra-deep NGS | 31036768 | QA | PASS |
+| Hur 2018 — BALF extracellular-vesicle DNA, *EGFR* | 29374476 | QA, QB, QC | PASS |
+
+**The gate passes only on the union — never on any single sub-query.** QB is the only block that
+retrieves the targeted-washing seed (40017263); QA is the only block that retrieves Nair and Ryu.
+Any future amendment that drops a sub-block must re-run this gate before execution.
 
 ### 7.3 Screening
 
@@ -416,12 +443,13 @@ PROSPERO amendment.
 
 ## 13. Open items before registration
 
-| # | Item | Owner |
-|---|---|---|
-| 1 | Resolve every `[CITE]` via `/search-lit` (API-verified; none from memory) | — |
-| 2 | Complete the seed set in §7.2.1 and run the retrieval gate | — |
-| 3 | PRESS peer review of the search strategy | — |
-| 4 | Confirm review team, roles, and the reviewer-independence assignment (§7.3) | — |
-| 5 | Confirm funding and COI statements | — |
-| 6 | Write the full 20-question `quadas3_guidance.md` web appendix | — |
-| 7 | Submit to PROSPERO and record the CRD ID (`^CRD42\d{9}$`) | — |
+| # | Item | Status | Owner |
+|---|---|---|---|
+| 1 | Resolve every `[CITE]` against PubMed (none from memory) | **Done** 2026-08-26 | — |
+| 2 | Complete the seed set in §7.2.1 and run the retrieval gate | **Done** — PASS | — |
+| 3 | Execute Embase, Cochrane CENTRAL, Scopus, Web of Science | Open | — |
+| 4 | PRESS peer review of the search strategy | Open | — |
+| 5 | Confirm review team, roles, and the reviewer-independence assignment (§7.3) | Open | — |
+| 6 | Confirm funding and COI statements | Open | — |
+| 7 | Write the full 20-question `quadas3_guidance.md` web appendix | Open | — |
+| 8 | Submit to PROSPERO and record the CRD ID (`^CRD42\d{9}$`) | Open | — |
