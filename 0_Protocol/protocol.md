@@ -447,7 +447,7 @@ PROSPERO amendment.
 |---|---|---|---|
 | 1 | Resolve every `[CITE]` against PubMed (none from memory) | **Done** 2026-08-26 | — |
 | 2 | Complete the seed set in §7.2.1 and run the retrieval gate | **Done** — PASS | — |
-| 3 | Execute Embase, Cochrane CENTRAL, Scopus, Web of Science | Embase block drafted (`1_Search/embase_strategy.md`); execution needs an institutional account | — |
+| 3 | Execute PubMed + Embase | Run sheet ready (`1_Search/RUN_SHEET.md`); awaiting exports. CENTRAL / Scopus / WoS still open | — |
 | 4 | PRESS peer review of the search strategy | Open | — |
 | 5 | Confirm review team, roles, and the reviewer-independence assignment (§7.3) | Open | — |
 | 6 | Confirm funding and COI statements | Open | — |
